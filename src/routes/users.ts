@@ -13,7 +13,7 @@ import path from 'path'
 const pump = util.promisify(pipeline)
 
 declare module 'fastify' {
-  interface FastifyRequest { // you must reference the interface and not the type
+  interface FastifyRequest { 
     userId: string
   }
 }
@@ -45,9 +45,7 @@ export function usersRoutes(app: FastifyInstance, options: any, done: () => void
   });
 
  
-  
   app.post('/', async (req, reply) => {
-  
 
     const createUserBodySchema = z.object({
       name: z.string(),
@@ -104,10 +102,6 @@ export function usersRoutes(app: FastifyInstance, options: any, done: () => void
     return { message: 'files uploaded', paths: uploadedFiles };
     });
     
-  
-
- 
- 
 app.put('/:id', async (req, reply) => {
   const createUserBodySchema = z.object({
     name: z.string(),
